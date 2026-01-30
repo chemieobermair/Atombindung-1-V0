@@ -23,15 +23,14 @@
     <span class="hint">iOS: Safari empfohlen • Android: Chrome • AR-Button im Viewer</span>
   </header>
 
-  <model-viewer id="mv"
-    src="./Assets/5816-bas-color-print_NIH3D.glb"
-    ar
-    ar-modes="webxr scene-viewer quick-look"
-    camera-controls
-    auto-rotate
-    shadow-intensity="0.6"
-    alt="3D Modell">
-  </model-viewer>
+<model-viewer
+  src="./Assets/DEINMODELL.glb"
+  ar
+  ar-modes="scene-viewer quick-look"
+  ar-placement="floor"
+  ar-scale="auto"
+  camera-controls>
+</model-viewer>
 
   <script>
     const models = ["5816-bas-color-print_NIH3D.glb", "FabConvert.com_nh3.glb", "FabConvert.com_sdfrecord_type_3d+(1).glb", "Simple four.glb", "Simple one.glb", "Simple three.glb", "Simple two.glb", "acetylsalicylic_acid_-_aspirin.glb", "adrenaline.glb", "aspirine1.glb", "fire_animation.glb", "nitrogen_bottle.glb", "propane_red.glb"];
