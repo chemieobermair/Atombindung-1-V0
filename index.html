@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atombindung 1 – WebAR Viewer</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    header { padding: 12px 14px; display:flex; gap:10px; align-items:center; flex-wrap:wrap; border-bottom:1px solid #ddd; }
+    select, button { font-size: 16px; padding: 8px 10px; }
+    model-viewer { width: 100vw; height: calc(100vh - 60px); }
+    .hint { font-size: 13px; color:#444; }
+  </style>
+</head>
+<body>
+  <header>
+    <strong>Atombindung 1 – WebAR Viewer</strong>
+    <label>
+      Modell:
+      <select id="modelSelect"></select>
+    </label>
+    <span class="hint">iOS: Safari empfohlen • Android: Chrome • AR-Button im Viewer</span>
+  </header>
+
+  <model-viewer id="mv"
+    src="./Assets/5816-bas-color-print_NIH3D.glb"
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    camera-controls
+    auto-rotate
+    shadow-intensity="0.6"
+    alt="3D Modell">
+  </model-viewer>
+
+  <script>
+    const models = ["5816-bas-color-print_NIH3D.glb", "FabConvert.com_nh3.glb", "FabConvert.com_sdfrecord_type_3d+(1).glb", "Simple four.glb", "Simple one.glb", "Simple three.glb", "Simple two.glb", "acetylsalicylic_acid_-_aspirin.glb", "adrenaline.glb", "aspirine1.glb", "fire_animation.glb", "nitrogen_bottle.glb", "propane_red.glb"];
+    const sel = document.getElementById('modelSelect');
+    const mv = document.getElementById('mv');
+
+    models.forEach(name => {
+      const opt = document.createElement('option');
+      opt.value = name;
+      opt.textContent = name;
+      sel.appendChild(opt);
+    });
+
+    sel.addEventListener('change', () => {
+      mv.src = "./Assets/" + sel.value;
+    });
+  </script>
+</body>
+</html>
